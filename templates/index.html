@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Hero Section -->
+    {% include 'components/hero.html' %}
+    
+    <!-- Products Section -->
+    <section id="products" class="section bg-white py-16">
+        {% include 'components/products.html' %}
+    </section>
+    
+    <!-- Company Information Section -->
+    <section id="company" class="section bg-gray-100 py-16">
+        {% include 'components/company.html' %}
+    </section>
+    
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="section bg-white py-16">
+        {% include 'components/case-studies.html' %}
+    </section>
+    
+    <!-- News Section -->
+    <section id="news" class="section bg-gray-100 py-16">
+        {% include 'components/news.html' %}
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-white py-16">
+        {% include 'components/contact.html' %}
+    </section>
+{% endblock %}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ g.language }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{% block title %}U-Mate® - {{ g.translations.meta_title }}{% endblock %}</title>
+    <meta name="description" content="{{ g.translations.meta_description }}">
+    <meta name="keywords" content="{{ g.translations.meta_keywords }}">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="U-Mate® - {{ g.translations.meta_title }}">
+    <meta property="og:description" content="{{ g.translations.meta_description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/og-image.jpg') }}">
+    
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="U-Mate® - {{ g.translations.meta_title }}">
+    <meta name="twitter:description" content="{{ g.translations.meta_description }}">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/twitter-image.jpg') }}">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ request.url }}">
+    
+    <!-- Alternate Language Links -->
+    {% for lang_code, lang_name in g.available_languages.items() %}
+    <link rel="alternate" hreflang="{{ lang_code }}" href="{{ url_for('index', _external=True) }}?lang={{ lang_code }}">
+    {% endfor %}
+    
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tailwind.css') }}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    {% include 'components/header.html' %}
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    {% include 'components/footer.html' %}
+    
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/language-switcher.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

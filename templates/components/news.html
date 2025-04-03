@@ -1,0 +1,79 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">{{ g.translations.news_title }}</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">{{ g.translations.news_subtitle }}</p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- News Item 1 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">{{ g.translations.news_category_seminar }}</span>
+                    <span class="text-gray-500 text-sm">2023.12.15</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">{{ g.translations.news_item1_title }}</h3>
+                <p class="text-gray-600 mb-4">{{ g.translations.news_item1_desc }}</p>
+                <a href="#" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                    {{ g.translations.news_read_more }}
+                    <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- News Item 2 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">{{ g.translations.news_category_exhibition }}</span>
+                    <span class="text-gray-500 text-sm">2023.11.10</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">{{ g.translations.news_item2_title }}</h3>
+                <p class="text-gray-600 mb-4">{{ g.translations.news_item2_desc }}</p>
+                <a href="#" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                    {{ g.translations.news_read_more }}
+                    <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- News Item 3 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">{{ g.translations.news_category_product }}</span>
+                    <span class="text-gray-500 text-sm">2023.10.05</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">{{ g.translations.news_item3_title }}</h3>
+                <p class="text-gray-600 mb-4">{{ g.translations.news_item3_desc }}</p>
+                <a href="#" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                    {{ g.translations.news_read_more }}
+                    <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- News Item 4 -->
+        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs">{{ g.translations.news_category_partnership }}</span>
+                    <span class="text-gray-500 text-sm">2023.09.20</span>
+                </div>
+                <h3 class="text-xl font-bold mb-4">{{ g.translations.news_item4_title }}</h3>
+                <p class="text-gray-600 mb-4">{{ g.translations.news_item4_desc }}</p>
+                <a href="#" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+                    {{ g.translations.news_read_more }}
+                    <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- All News Button -->
+    <div class="text-center mt-12">
+        <a href="#" class="inline-block border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-medium py-2 px-8 rounded-lg transition duration-300">
+            {{ g.translations.news_view_all }}
+        </a>
+    </div>
+</div>

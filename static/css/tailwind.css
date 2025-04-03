@@ -1,0 +1,92 @@
+/* Import Tailwind CSS */
+@import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+/* Custom styles */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Noto Sans', 'Noto Sans JP', sans-serif;
+}
+
+.gradient-bg {
+    background: linear-gradient(135deg, #0a2463 0%, #3e92cc 100%);
+}
+
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, #0a2463 0%, #3e92cc 100%);
+}
+
+.section {
+    padding: 4rem 0;
+}
+
+.hero-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card-hover {
+    transition: all 0.3s ease;
+}
+
+/* Language switcher */
+.language-switcher {
+    position: relative;
+}
+
+.language-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 100%;
+    z-index: 50;
+}
+
+.language-switcher:hover .language-options {
+    display: block;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+}
+
+.mobile-menu.active {
+    transform: translateX(0);
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Add delay to child elements for staggered animation */
+.stagger-animation > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-animation > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-animation > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-animation > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-animation > *:nth-child(5) { animation-delay: 0.5s; }
