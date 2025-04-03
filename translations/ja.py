@@ -2,8 +2,8 @@
 translations = {
     # Meta information
     "meta_title": "最適なソリューションを見つける | U-Mate®",
-    "meta_description": "アルティメイトプロジェクト株式会社のU-Mate®は、AI・IoT技術を活用した製造業向けの生産管理、在庫管理、自動認識ソリューションを提供します。",
-    "meta_keywords": "U-Mate, アルティメイトプロジェクト, AI, IoT, 生産管理, 在庫管理, 個体管理, 自動認識",
+    "meta_description": "Ultimate Project (UPC)のU-Mate®は、AI・IoT技術を活用した製造業向けの生産管理、在庫管理、自動認識ソリューションを提供します。",
+    "meta_keywords": "U-Mate, Ultimate Project, UPC, AI, IoT, 生産管理, 在庫管理, 個体管理, 自動認識",
     
     # Navigation
     "nav_home": "ホーム",
@@ -16,7 +16,7 @@ translations = {
     
     # Hero section
     "hero_title": "U-Mate® ソリューション",
-    "hero_description": "アルティメイトプロジェクト株式会社は長年の製造業経験を活かし、個体管理、AIによる自動認識など、お客様に最適なソリューションを提供します。",
+    "hero_description": "Ultimate Project (UPC)は長年の製造業経験を活かし、個体管理、AIによる自動認識など、お客様に最適なソリューションを提供します。",
     "hero_button_products": "製品を見る",
     "hero_button_contact": "お問い合わせ",
     
@@ -52,7 +52,7 @@ translations = {
     
     # Company section
     "company_title": "会社情報",
-    "company_subtitle": "アルティメイトプロジェクト株式会社について",
+    "company_subtitle": "Ultimate Project (UPC)について",
     "company_greeting_title": "ご挨拶",
     "company_greeting": "私たちは、「Find The Best」をモットーに、お客様の課題に最適なソリューションを提供することを目指しています。長年の製造業経験と最新技術の融合により、高品質なサービスを実現します。",
     "company_president": "代表取締役",
@@ -142,7 +142,7 @@ translations = {
     "contact_error_message": "必須項目をすべて入力してください。",
     
     # Footer
-    "footer_company_description": "アルティメイトプロジェクト株式会社は、AI・IoT技術を活用した製造業向けソリューションを提供する企業です。",
+    "footer_company_description": "Ultimate Project (UPC)は、AI・IoT技術を活用した製造業向けソリューションを提供する企業です。",
     "footer_quick_links": "クイックリンク",
     "footer_other_links": "その他のリンク",
     "footer_partners": "パートナー企業",
@@ -151,5 +151,5 @@ translations = {
     "footer_privacy": "プライバシーポリシー",
     "footer_terms": "利用規約",
     "footer_contact_us": "お問い合わせ",
-    "footer_copyright": "© アルティメイトプロジェクト株式会社",
+    "footer_copyright": "© Ultimate Project (UPC)",
 }

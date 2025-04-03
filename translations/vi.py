@@ -52,7 +52,7 @@ translations = {
     
     # Company section
     "company_title": "Thông tin công ty",
-    "company_subtitle": "Về công ty アルティメイトプロジェクト株式会社",
+    "company_subtitle": "Về công ty Ultimate Project (UPC)",
     "company_greeting_title": "Lời chào",
     "company_greeting": "Với phương châm \"Find The Best\", chúng tôi luôn nỗ lực cung cấp những giải pháp tối ưu cho thách thức của khách hàng. Kết hợp kinh nghiệm lâu năm trong ngành sản xuất và công nghệ tiên tiến, chúng tôi mang đến dịch vụ chất lượng cao.",
     "company_president": "Giám đốc điều hành",
@@ -142,7 +142,7 @@ translations = {
     "contact_error_message": "Vui lòng điền đầy đủ thông tin bắt buộc.",
     
     # Footer
-    "footer_company_description": "アルティメイトプロジェクト株式会社 là công ty cung cấp các giải pháp cho ngành sản xuất sử dụng công nghệ AI và IoT.",
+    "footer_company_description": "Ultimate Project (UPC) là công ty cung cấp các giải pháp cho ngành sản xuất sử dụng công nghệ AI và IoT.",
     "footer_quick_links": "Liên kết nhanh",
     "footer_other_links": "Liên kết khác",
     "footer_partners": "Đối tác",
@@ -151,5 +151,5 @@ translations = {
     "footer_privacy": "Chính sách bảo mật",
     "footer_terms": "Điều khoản sử dụng",
     "footer_contact_us": "Liên hệ",
-    "footer_copyright": "© Ultimate Project Co., Ltd.",
+    "footer_copyright": "© Ultimate Project (UPC)",
 }
