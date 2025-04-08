@@ -39,15 +39,15 @@
                 <ul class="list-unstyled">
                     <li class="mb-3 d-flex">
                         <i class="bi bi-geo-alt me-2 text-primary"></i>
-                        <span>{% if company_settings.get('company_address') %}{{ company_settings.get('company_address') }}{% else %}{{ g.translations.get('footer_address') or "" }}{% endif %}</span>
+                        <span>{{ g.company_settings.get('company_address') or g.translations.get('footer_address') }}</span>
                     </li>
                     <li class="mb-3 d-flex">
                         <i class="bi bi-telephone me-2 text-primary"></i>
-                        <span>{{ company_settings.get('company_phone') or g.translations.get('footer_phone') }}</span>
+                        <span>{{ g.company_settings.get('company_phone') or g.translations.get('footer_phone') }}</span>
                     </li>
                     <li class="mb-3 d-flex">
                         <i class="bi bi-envelope me-2 text-primary"></i>
-                        <span>{{ company_settings.get('company_email') or g.translations.get('footer_email') }}</span>
+                        <span>{{ g.company_settings.get('company_email') or g.translations.get('footer_email') }}</span>
                     </li>
                 </ul>
             </div>

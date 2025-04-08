@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h1 class="mb-4">{{ case_study.title_vi if g.language == 'vi' else case_study.title_ja }}</h1>
+    <img src="data:image/png;base64,{{ case_study.image }}" alt="{{ case_study.title_vi }}" class="img-fluid mb-4">
+    <p>{{ case_study.description_vi if g.language == 'vi' else case_study.description_ja }}</p>
+    <hr>
+    <h2 class="mt-4">{{ g.translations.get('details_title') }}</h2>
+    <p>{{ case_study.details_vi if g.language == 'vi' else case_study.details_ja }}</p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary mt-4">Back to Home</a>
+</div>
+{% endblock %}

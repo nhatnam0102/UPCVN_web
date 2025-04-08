@@ -243,6 +243,16 @@ def before_request():
 
     g.translations = translations
 
+    # Fetch company settings and make them globally available
+    company_settings = {}
+    settings = db.settings.find({"group": "company"})
+    for setting in settings:
+        value = (
+            setting.get("value_vi") if g.language == "vi" else setting.get("value_ja")
+        )
+        company_settings[setting["key"]] = value or ""
+    g.company_settings = company_settings
+
 
 @app.route("/change-language/<language>")
 def change_language(language):
@@ -311,6 +321,22 @@ def index():
         partners=partners,  # Pass partners data to the template
         company_settings=company_settings,
     )
+
+
+@app.route("/product/<string:id>")
+def product_detail(id):
+    product = db.products.find_one({"_id": ObjectId(id)})
+    if not product:
+        abort(404)
+    return render_template("product_detail.html", product=product)
+
+
+@app.route("/case-study/<string:id>")
+def case_study_detail(id):
+    case_study = db.case_studies.find_one({"_id": ObjectId(id)})
+    if not case_study:
+        abort(404)
+    return render_template("case_study_detail.html", case_study=case_study)
 
 
 @app.route("/contact", methods=["GET", "POST"])

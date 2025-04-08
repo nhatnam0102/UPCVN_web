@@ -35,7 +35,7 @@
                                 style="width: 70px; height: 70px; top: 50%; left: -40px; z-index: 0; opacity: 0.15;"></div>
                         </div>
                         <div class="position-absolute p-3 bg-white shadow-lg rounded-3 d-none d-md-block" 
-                            style="top: 20px; right: -20px; z-index: 2; max-width: 180px;">
+                            style="top: 20px; right: -20px; z-index: 2; max-width: 220px;">
                             <div class="d-flex align-items-center">
                                 <div class="me-3 bg-primary bg-opacity-10 p-2 rounded-circle">
                                     <i class="bi bi-lightbulb text-primary"></i>
@@ -99,9 +99,11 @@
                             <div class="card-body p-4">
                                 <h5 class="card-title mb-3">{{ product.title_vi if g.language == 'vi' else product.title_ja }}</h5>
                                 <p class="card-text">{{ product.description_vi if g.language == 'vi' else product.description_ja }}</p>
-                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-arrow-right-circle me-1"></i> Details
-                                </a></div>
+                                <div class="mt-auto pt-3">
+                                    <a href="{{ url_for('product_detail', id=product['_id']) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-arrow-right-circle me-1"></i> Details
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -185,9 +187,11 @@
                                 <span class="badge bg-primary mb-2">{{ case_study.category_vi if g.language == 'vi' else case_study.category_ja }}</span>
                                 <h5 class="card-title mb-3">{{ case_study.title_vi if g.language == 'vi' else case_study.title_ja }}</h5>
                                 <p class="card-text">{{ case_study.description_vi if g.language == 'vi' else case_study.description_ja }}</p>
-                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-file-text me-1"></i> Read Case Study
-                                </a></div>
+                                <div class="mt-auto pt-3">
+                                    <a href="{{ url_for('case_study_detail', id=case_study['_id']) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-file-text me-1"></i> Read Case Study
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -201,9 +205,11 @@
                                 <span class="badge bg-primary mb-2">Integration</span>
                                 <h5 class="card-title mb-3">{{ g.translations.get('case_kintone_title') }}</h5>
                                 <p class="card-text">{{ g.translations.get('case_kintone_description') }}</p>
-                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-file-text me-1"></i> Read Case Study
-                                </a></div>
+                                <div class="mt-auto pt-3">
+                                    <a href="{{ url_for('case_study_detail', id=case_study['_id']) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-file-text me-1"></i> Read Case Study
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -216,9 +222,11 @@
                                 <span class="badge bg-secondary mb-2">AI Technology</span>
                                 <h5 class="card-title mb-3">{{ g.translations.get('case_ai_inspection_title') }}</h5>
                                 <p class="card-text">{{ g.translations.get('case_ai_inspection_description') }}</p>
-                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-file-text me-1"></i> Read Case Study
-                                </a></div>
+                                <div class="mt-auto pt-3">
+                                    <a href="{{ url_for('case_study_detail', id=case_study['_id']) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-file-text me-1"></i> Read Case Study
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -231,9 +239,11 @@
                                 <span class="badge bg-primary mb-2">Management</span>
                                 <h5 class="card-title mb-3">{{ g.translations.get('case_foreign_labor_title') }}</h5>
                                 <p class="card-text">{{ g.translations.get('case_foreign_labor_description') }}</p>
-                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
-                                    <i class="bi bi-file-text me-1"></i> Read Case Study
-                                </a></div>
+                                <div class="mt-auto pt-3">
+                                    <a href="{{ url_for('case_study_detail', id=case_study['_id']) }}" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-file-text me-1"></i> Read Case Study
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
