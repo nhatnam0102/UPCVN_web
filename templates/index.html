@@ -2,30 +2,448 @@
 
 {% block content %}
     <!-- Hero Section -->
-    {% include 'components/hero.html' %}
-    
-    <!-- Products Section -->
-    <section id="products" class="section bg-white py-16">
-        {% include 'components/products.html' %}
+    <section class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="display-3 fw-bold mb-4">
+                        <span class="text-gradient">{{ g.translations.get('hero_title') }}</span>
+                    </h1>
+                    <p class="lead mb-4 fw-bold text-primary">{{ g.translations.get('hero_subtitle') }}</p>
+                    <p class="mb-4">{{ g.translations.get('hero_description') }}</p>
+                    <div class="d-flex gap-3">
+                        <a href="#products" class="btn btn-primary btn-lg shadow-lg">
+                            <i class="bi bi-box me-2"></i>{{ g.translations.get('hero_button') }}
+                        </a>
+                        <a href="{{ url_for('contact') }}" class="btn btn-outline-secondary btn-lg">
+                            <i class="bi bi-envelope me-2"></i>{{ g.translations.get('menu_contact') }}
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <div class="hero-image-container">
+                            <img src="{{ url_for('static', filename='images/products/ai.jpg') }}" 
+                                alt="U-Mate Technology" 
+                                class="img-fluid rounded-3 shadow-lg" 
+                                style="z-index: 1; position: relative;">
+                            <div class="position-absolute bg-primary rounded-circle pulse-animation" 
+                                style="width: 150px; height: 150px; top: -30px; right: -30px; z-index: 0; opacity: 0.2;"></div>
+                            <div class="position-absolute bg-secondary rounded-circle pulse-animation-slow" 
+                                style="width: 100px; height: 100px; bottom: -20px; left: -20px; z-index: 0; opacity: 0.2;"></div>
+                            <div class="position-absolute bg-info rounded-circle pulse-animation-medium" 
+                                style="width: 70px; height: 70px; top: 50%; left: -40px; z-index: 0; opacity: 0.15;"></div>
+                        </div>
+                        <div class="position-absolute p-3 bg-white shadow-lg rounded-3 d-none d-md-block" 
+                            style="top: 20px; right: -20px; z-index: 2; max-width: 180px;">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3 bg-primary bg-opacity-10 p-2 rounded-circle">
+                                    <i class="bi bi-lightbulb text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">AI Solutions</h6>
+                                    <small class="text-muted">Smart & Efficient</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     
-    <!-- Company Information Section -->
-    <section id="company" class="section bg-gray-100 py-16">
-        {% include 'components/company.html' %}
+    <style>
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.2; }
+            50% { transform: scale(1.1); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.2; }
+        }
+        
+        .pulse-animation {
+            animation: pulse 3s infinite ease-in-out;
+        }
+        
+        .pulse-animation-slow {
+            animation: pulse 5s infinite ease-in-out;
+        }
+        
+        .pulse-animation-medium {
+            animation: pulse 4s infinite ease-in-out;
+        }
+        
+        .hero-image-container {
+            transition: all 0.3s ease;
+        }
+        
+        .hero-image-container:hover {
+            transform: translateY(-10px);
+        }
+    </style>
+    
+    <!-- Products Section -->
+    <section id="products" class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 mb-3 section-title">{{ g.translations.get('products_title') }}</h2>
+                    <p class="lead">{{ g.translations.get('products_description') }}</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                {% if products %}
+                    {% for product in products %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card h-100">
+                            <img src="{{ product.image }}" alt="{{ product.title_vi if g.language == 'vi' else product.title_ja }}" class="card-img-top">
+                            <div class="card-body p-4">
+                                <h5 class="card-title mb-3">{{ product.title_vi if g.language == 'vi' else product.title_ja }}</h5>
+                                <p class="card-text">{{ product.description_vi if g.language == 'vi' else product.description_ja }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> Details
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="col-12 text-center">
+                        <p class="text-muted">No products available at the moment.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    
+    <!-- Company Section -->
+    <section id="company" class="section-padding bg-light">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="display-4 mb-4 section-title">{{ company_settings.get('company_title') or g.translations.get('company_title') }}</h2>
+                    <p class="lead mb-4 fw-bold">{{ company_settings.get('company_description') or g.translations.get('company_description') }}</p>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="me-3">
+                            <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="bi bi-eye-fill text-white fs-4"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Our Vision</h5>
+                            <p class="mb-0">{{ company_settings.get('company_vision') or g.translations.get('company_vision') }}</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="me-3">
+                            <div class="bg-secondary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                                <i class="bi bi-hourglass-split text-white fs-4"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="mb-1">Our History</h5>
+                            <p class="mb-0">{{ company_settings.get('company_history') or g.translations.get('company_history') }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="position-relative">
+                        <img src="{{ url_for('static', filename='images/case_studies/case_kintone.jpg') }}" alt="Company Office" class="img-fluid rounded-3 shadow-lg">
+                        <div class="position-absolute bg-white rounded p-3 shadow" style="bottom: -20px; right: 20px; z-index: 2;">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3">
+                                    <i class="bi bi-calendar-check fs-3 text-primary"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0 fw-bold">Est. 2010</h6>
+                                    <p class="mb-0 small">Trusted Solutions</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- Case Studies Section -->
-    <section id="case-studies" class="section bg-white py-16">
-        {% include 'components/case-studies.html' %}
+    <section id="case-studies" class="section-padding">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 mb-3 section-title">{{ g.translations.get('case_studies_title') }}</h2>
+                    <p class="lead">{{ g.translations.get('case_studies_description') }}</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                {% if case_studies %}
+                    {% for case_study in case_studies %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="case-study-card h-100">
+                            <img  class="card-img-top" src="data:image/png;base64,{{ case_study.image }}" alt="Case Study Image">
+                            <div class="card-body p-4">
+                                <span class="badge bg-primary mb-2">{{ case_study.category_vi if g.language == 'vi' else case_study.category_ja }}</span>
+                                <h5 class="card-title mb-3">{{ case_study.title_vi if g.language == 'vi' else case_study.title_ja }}</h5>
+                                <p class="card-text">{{ case_study.description_vi if g.language == 'vi' else case_study.description_ja }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-text me-1"></i> Read Case Study
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- Case Study 1: Kintone -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="case-study-card h-100">
+                            <img src="{{ url_for('static', filename='images/case_studies/case_kintone.jpg') }}" class="card-img-top" alt="Kintone Integration">
+                            <div class="card-body p-4">
+                                <span class="badge bg-primary mb-2">Integration</span>
+                                <h5 class="card-title mb-3">{{ g.translations.get('case_kintone_title') }}</h5>
+                                <p class="card-text">{{ g.translations.get('case_kintone_description') }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-text me-1"></i> Read Case Study
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 2: AI Inspection -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="case-study-card h-100">
+                            <img src="{{ url_for('static', filename='images/case_studies/case_ai_inspection.jpg') }}" class="card-img-top" alt="AI Inspection">
+                            <div class="card-body p-4">
+                                <span class="badge bg-secondary mb-2">AI Technology</span>
+                                <h5 class="card-title mb-3">{{ g.translations.get('case_ai_inspection_title') }}</h5>
+                                <p class="card-text">{{ g.translations.get('case_ai_inspection_description') }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-text me-1"></i> Read Case Study
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Case Study 3: Foreign Labor -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="case-study-card h-100">
+                            <img src="{{ url_for('static', filename='images/case_studies/case_foreign_labor.jpg') }}" class="card-img-top" alt="Foreign Labor Management">
+                            <div class="card-body p-4">
+                                <span class="badge bg-primary mb-2">Management</span>
+                                <h5 class="card-title mb-3">{{ g.translations.get('case_foreign_labor_title') }}</h5>
+                                <p class="card-text">{{ g.translations.get('case_foreign_labor_description') }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-file-text me-1"></i> Read Case Study
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     </section>
     
     <!-- News Section -->
-    <section id="news" class="section bg-gray-100 py-16">
-        {% include 'components/news.html' %}
+    <section id="news" class="section-padding bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="display-4 mb-3 section-title">{{ g.translations.get('news_title') }}</h2>
+                    <p class="lead">{{ g.translations.get('news_description') }}</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                {% if news_items %}
+                    {% for news in news_items %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3 bg-primary bg-opacity-10 p-2 rounded-circle">
+                                        <i class="bi bi-calendar3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">{{ news.date.strftime('%d/%m/%Y') }}</small>
+                                    </div>
+                                </div>
+                                <h5 class="card-title mb-3">{{ news.title_vi if g.language == 'vi' else news.title_ja }}</h5>
+                                <p class="card-text">{{ news.description_vi if g.language == 'vi' else news.description_ja }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> {{ g.translations.get('news_read_more') }}
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <!-- News 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3 bg-primary bg-opacity-10 p-2 rounded-circle">
+                                        <i class="bi bi-calendar3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">{{ g.translations.get('news_1_date') }}</small>
+                                    </div>
+                                </div>
+                                <h5 class="card-title mb-3">{{ g.translations.get('news_1_title') }}</h5>
+                                <p class="card-text">{{ g.translations.get('news_1_description') }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> {{ g.translations.get('news_read_more') }}
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- News 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3 bg-primary bg-opacity-10 p-2 rounded-circle">
+                                        <i class="bi bi-calendar3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">{{ g.translations.get('news_2_date') }}</small>
+                                    </div>
+                                </div>
+                                <h5 class="card-title mb-3">{{ g.translations.get('news_2_title') }}</h5>
+                                <p class="card-text">{{ g.translations.get('news_2_description') }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> {{ g.translations.get('news_read_more') }}
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- News 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="news-card h-100">
+                            <div class="card-body p-4">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="me-3 bg-primary bg-opacity-10 p-2 rounded-circle">
+                                        <i class="bi bi-calendar3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <small class="text-muted">{{ g.translations.get('news_3_date') }}</small>
+                                    </div>
+                                </div>
+                                <h5 class="card-title mb-3">{{ g.translations.get('news_3_title') }}</h5>
+                                <p class="card-text">{{ g.translations.get('news_3_description') }}</p>
+                                <div class="mt-auto pt-3"><a href="#" class="btn btn-sm btn-outline-primary">
+                                    <i class="bi bi-arrow-right-circle me-1"></i> {{ g.translations.get('news_read_more') }}
+                                </a></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     </section>
     
-    <!-- Contact Section -->
-    <section id="contact" class="section bg-white py-16">
-        {% include 'components/contact.html' %}
+    <!-- Call to Action Section -->
+    <section class="py-5" style="background: linear-gradient(120deg, #4285F4, #34A853);">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-4 mb-3 text-white">{{ g.translations.get('cta_title') }}</h2>
+                    <p class="lead text-white mb-4">{{ g.translations.get('cta_description') }}</p>
+                    <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg shadow">
+                        <i class="bi bi-envelope me-2"></i>{{ g.translations.get('cta_button') }}
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
+    
+    <!-- Partners Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-4 justify-content-center">
+                <div class="col-12 text-center">
+                    <h2 class="h3 mb-4">{{ g.translations.get('partners_title') }}</h2>
+                </div>
+            </div>
+            <div class="row g-4 align-items-center justify-content-center">
+                {% for partner in partners %}
+                <div class="col-4 col-md-2 text-center">
+                    <a href="{{ partner['website'] }}" target="_blank">
+                        <img src="data:image/png;base64,{{ partner.image }}" alt="{{ partner.name_vi if g.language == 'vi' else partner.name_ja }}" class="img-fluid opacity-75 partner-logo">
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    
+    <style>
+        .partner-logo {
+            max-height: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .partner-logo:hover {
+            transform: scale(1.1);
+            opacity: 1 !important;
+        }
+        
+        .product-card, .case-study-card, .news-card {
+            background: #ffffff;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover, .case-study-card:hover, .news-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(120deg, #4285F4, #34A853);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(120deg, #4285F4, #34A853);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        
+        .section-padding {
+            padding: 6rem 0;
+        }
+        
+        .hero-section {
+            padding: 8rem 0;
+            position: relative;
+            background-color: #f8f9fa;
+            overflow: hidden;
+        }
+        
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--bs-primary);
+            margin: 0.5rem auto 0;
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
 {% endblock %}

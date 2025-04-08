@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" rx="15" ry="15" fill="#f0fff5"/>
+  
+  <!-- Conveyor Belt -->
+  <rect x="20" y="180" width="260" height="20" fill="#dddddd" stroke="#555555" stroke-width="2"/>
+  <circle cx="40" cy="200" r="10" fill="#555555"/>
+  <circle cx="260" cy="200" r="10" fill="#555555"/>
+  
+  <!-- Food Products -->
+  <circle cx="70" cy="170" r="15" fill="#ffffcc" stroke="#ddcc66" stroke-width="1"/>
+  <circle cx="120" cy="170" r="15" fill="#ffffcc" stroke="#ddcc66" stroke-width="1"/>
+  <circle cx="170" cy="170" r="15" fill="#ffffcc" stroke="#ddcc66" stroke-width="1"/>
+  <circle cx="220" cy="170" r="15" fill="#ffffcc" stroke="#ddcc66" stroke-width="1"/>
+  
+  <!-- Defect on one product -->
+  <path d="M172,162 L178,168" stroke="#cc0000" stroke-width="2"/>
+  <path d="M178,162 L172,168" stroke="#cc0000" stroke-width="2"/>
+  
+  <!-- Camera System -->
+  <rect x="140" y="80" width="40" height="30" fill="#ffffff" stroke="#00aa55" stroke-width="2"/>
+  <circle cx="160" cy="95" r="10" fill="#00aa55"/>
+  <path d="M140,110 L130,120" stroke="#00aa55" stroke-width="1.5"/>
+  <path d="M180,110 L190,120" stroke="#00aa55" stroke-width="1.5"/>
+  
+  <!-- Vision Field -->
+  <path d="M130,120 L130,170 L190,170 L190,120" stroke="#00aa55" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  
+  <!-- AI Analysis -->
+  <rect x="220" y="80" width="60" height="50" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <text x="235" y="110" font-family="Arial" font-size="14" fill="#0077cc">AI</text>
+  
+  <!-- Data Connection -->
+  <path d="M180,95 C200,95 200,95 220,95" stroke="#0077cc" stroke-width="2" fill="none"/>
+  
+  <!-- Detection Result -->
+  <rect x="170" y="125" width="30" height="15" rx="5" ry="5" fill="#ffffff" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="180" y="136" font-family="Arial" font-size="10" fill="#cc0000">✖</text>
+  <path d="M220,130 C210,130 200,130 200,130" stroke="#cc0000" stroke-width="1.5" fill="none"/>
+  
+  <!-- Cost & Accuracy Metrics -->
+  <rect x="40" y="80" width="60" height="50" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <text x="45" y="100" font-family="Arial" font-size="10" fill="#0077cc">Cost -30%</text>
+  <text x="45" y="120" font-family="Arial" font-size="10" fill="#0077cc">Acc +25%</text>
+  
+  <!-- Arrow from AI to Metrics -->
+  <path d="M220,100 C180,70 100,70 100,80" stroke="#0077cc" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  
+  <!-- Rejected Product Bin -->
+  <rect x="160" y="220" width="30" height="20" rx="5" ry="5" fill="#ffffff" stroke="#cc0000" stroke-width="1.5"/>
+  <path d="M170,170 L170,190 L175,220" stroke="#cc0000" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+</svg>

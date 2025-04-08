@@ -1,0 +1,113 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Xem chi tiết liên hệ{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Chi tiết liên hệ</h1>
+    <a href="{{ url_for('admin_contacts') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Quay lại
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body p-4">
+        <div class="row">
+            <div class="col-md-6">
+                <table class="table">
+                    <tr>
+                        <th style="width: 150px;">Người gửi:</th>
+                        <td>{{ contact.name }}</td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></td>
+                    </tr>
+                    {% if contact.phone %}
+                    <tr>
+                        <th>Số điện thoại:</th>
+                        <td>{{ contact.phone }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if contact.company %}
+                    <tr>
+                        <th>Công ty:</th>
+                        <td>{{ contact.company }}</td>
+                    </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Chủ đề:</th>
+                        <td>{{ contact.subject }}</td>
+                    </tr>
+                    <tr>
+                        <th>Ngày gửi:</th>
+                        <td>{{ contact.created_at.strftime('%d/%m/%Y %H:%M') }}</td>
+                    </tr>
+                    <tr>
+                        <th>Trạng thái:</th>
+                        <td>
+                            {% if contact.is_read %}
+                            <span class="badge bg-success">Đã đọc</span>
+                            {% else %}
+                            <span class="badge bg-primary">Chưa đọc</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-header bg-light py-3">
+        <h5 class="card-title mb-0 fw-bold">Nội dung tin nhắn</h5>
+    </div>
+    <div class="card-body p-4">
+        <div class="message-content">
+            {{ contact.message | nl2br }}
+        </div>
+    </div>
+    <div class="card-footer bg-light">
+        <div class="d-flex justify-content-between">
+            <a href="mailto:{{ contact.email }}" class="btn btn-primary">
+                <i class="bi bi-reply me-1"></i> Trả lời qua Email
+            </a>
+            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                <i class="bi bi-trash me-1"></i> Xóa
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Xác nhận xóa</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Bạn có chắc chắn muốn xóa liên hệ từ <strong>{{ contact.name }}</strong>?</p>
+                <p class="text-danger"><small>Hành động này không thể hoàn tác.</small></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                <form action="{{ url_for('admin_contacts_delete', id=contact.id) }}" method="post">
+                    <button type="submit" class="btn btn-danger">Xóa</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Thêm bộ lọc nl2br cho Jinja2
+    {{ '{% filter nl2br %}' }}
+    {{ contact.message }}
+    {{ '{% endfilter %}' }}
+</script>
+{% endblock %}

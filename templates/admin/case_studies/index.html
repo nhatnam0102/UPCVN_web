@@ -1,0 +1,89 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Quản lý dự án{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Quản lý dự án</h1>
+    <a href="{{ url_for('admin_case_studies_create') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i> Thêm dự án mới
+    </a>
+</div>
+
+{% include 'admin/components/alerts.html' %}
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th style="width: 60px;">STT</th>
+                        <th style="width: 100px;">Hình ảnh</th>
+                        <th>Tên dự án (VI)</th>
+                        <th>Tên dự án (JP)</th>
+                        <th>Danh mục</th>
+                        <th style="width: 80px;">Thứ tự</th>
+                        <th style="width: 180px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for case_study in case_studies %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if case_study.image %}
+                            <img src="data:image/png;base64,{{ case_study.image }}" alt="{{ case_study.title_vi }}" class="img-thumbnail" style="max-width: 80px;">
+                            {% else %}
+                            <span class="text-muted">N/A</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ case_study.title_vi }}</td>
+                        <td>{{ case_study.title_ja }}</td>
+                        <td>{{ case_study.category_vi if g.language == 'vi' else case_study.category_ja }}</td>
+                        <td>{{ case_study.order }}</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="{{ url_for('admin_case_studies_edit', id=case_study['_id']) }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </a>
+                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ case_study['_id'] }}">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </div>
+                            
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="deleteModal{{ case_study['_id'] }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ case_study['_id'] }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel{{ case_study['_id'] }}">Xác nhận xóa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Bạn có chắc chắn muốn xóa dự án <strong>{{ case_study.title_vi }}</strong>?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                            <form action="{{ url_for('admin_case_studies_delete', id=case_study['_id']) }}" method="post">
+                                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center py-4">
+                            <p class="mb-0 text-muted">Chưa có dự án nào. Hãy thêm dự án mới.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Thêm đối tác{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Thêm đối tác mới</h1>
+    <a href="{{ url_for('admin_partners') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Quay lại
+    </a>
+</div>
+
+{% include 'admin/components/alerts.html' %}
+
+<div class="card border-0 shadow-sm mb-4">
+    <div class="card-body p-4">
+        <form action="{{ url_for('admin_partners_create') }}" method="post" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="name_vi" class="form-label fw-bold">Tên đối tác (Tiếng Việt) <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name_vi" name="name_vi" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="name_ja" class="form-label fw-bold">Tên đối tác (Tiếng Nhật) <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" id="name_ja" name="name_ja" required>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="website" class="form-label fw-bold">Website</label>
+                <input type="url" class="form-control" id="website" name="website" placeholder="https://example.com">
+                <small class="form-text text-muted">Nhập địa chỉ website đầy đủ bao gồm https://</small>
+            </div>
+            
+            <div class="mb-3">
+                <label for="order" class="form-label fw-bold">Thứ tự hiển thị</label>
+                <input type="number" class="form-control" id="order" name="order" value="0" min="0">
+                <small class="form-text text-muted">Đối tác có thứ tự thấp hơn sẽ hiển thị trước</small>
+            </div>
+            
+            <div class="mb-4">
+                <label for="image" class="form-label fw-bold">Logo đối tác <span class="text-danger">*</span></label>
+                <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                <small class="form-text text-muted">Nên sử dụng hình ảnh có kích thước vuông, định dạng PNG và có nền trong suốt</small>
+            </div>
+            
+            <div class="border-top pt-3">
+                <button type="submit" class="btn btn-primary">
+                    <i class="bi bi-save me-1"></i> Lưu đối tác
+                </button>
+                <a href="{{ url_for('admin_partners') }}" class="btn btn-outline-secondary ms-2">Hủy</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

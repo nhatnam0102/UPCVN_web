@@ -1,182 +1,78 @@
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">{{ g.translations.products_title }}</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">{{ g.translations.products_subtitle }}</p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- U-Mate BT / Cloud -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="flex items-center justify-center h-16 w-16 bg-blue-100 text-blue-600 rounded-lg mb-4 mx-auto">
-                    <i class="fas fa-cloud text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-center mb-3">U-Mate® BT / Cloud</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.product_bt_cloud_desc }}</p>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_bt_cloud_feature1 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_bt_cloud_feature2 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_bt_cloud_feature3 }}</span>
-                    </li>
-                </ul>
-                <a href="#contact" class="block text-center text-blue-600 hover:text-blue-800 font-medium">
-                    {{ g.translations.product_learn_more }}
-                    <i class="fas fa-arrow-right ml-1"></i>
-                </a>
+<section id="products" class="section-padding bg-white">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-4 mb-3 text-primary">{{ g.translations.get('products_title') }}</h2>
+                <p class="lead">{{ g.translations.get('products_description') }}</p>
             </div>
         </div>
         
-        <!-- U-Mate AI -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="flex items-center justify-center h-16 w-16 bg-purple-100 text-purple-600 rounded-lg mb-4 mx-auto">
-                    <i class="fas fa-brain text-2xl"></i>
+        <div class="row g-4">
+            <!-- Product 1: BT Cloud -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/products/bt_cloud.jpg') }}" class="card-img-top product-image-placeholder" alt="U-Mate BT Cloud" data-product="bt_cloud">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('product_bt_cloud_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('product_bt_cloud_description') }}</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-center mb-3">U-Mate® エッジ AIソリューション</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.product_ai_desc }}</p>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_ai_feature1 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_ai_feature2 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_ai_feature3 }}</span>
-                    </li>
-                </ul>
-                <a href="#contact" class="block text-center text-purple-600 hover:text-purple-800 font-medium">
-                    {{ g.translations.product_learn_more }}
-                    <i class="fas fa-arrow-right ml-1"></i>
-                </a>
             </div>
-        </div>
-        
-        <!-- U-Mate WMS Cloud -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="flex items-center justify-center h-16 w-16 bg-green-100 text-green-600 rounded-lg mb-4 mx-auto">
-                    <i class="fas fa-warehouse text-2xl"></i>
+            
+            <!-- Product 2: AI Solution -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/products/ai.jpg') }}" class="card-img-top product-image-placeholder" alt="U-Mate AI Solution" data-product="ai">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('product_ai_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('product_ai_description') }}</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-center mb-3">U-Mate® WMSクラウド</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.product_wms_desc }}</p>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_wms_feature1 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_wms_feature2 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_wms_feature3 }}</span>
-                    </li>
-                </ul>
-                <a href="#contact" class="block text-center text-green-600 hover:text-green-800 font-medium">
-                    {{ g.translations.product_learn_more }}
-                    <i class="fas fa-arrow-right ml-1"></i>
-                </a>
             </div>
-        </div>
-        
-        <!-- U-Mate IoT Collector -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="flex items-center justify-center h-16 w-16 bg-red-100 text-red-600 rounded-lg mb-4 mx-auto">
-                    <i class="fas fa-network-wired text-2xl"></i>
+            
+            <!-- Product 3: WMS Cloud -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/products/wms.jpg') }}" class="card-img-top product-image-placeholder" alt="U-Mate WMS Cloud" data-product="wms">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('product_wms_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('product_wms_description') }}</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-center mb-3">U-Mate® IoT Collector</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.product_iot_desc }}</p>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_iot_feature1 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_iot_feature2 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_iot_feature3 }}</span>
-                    </li>
-                </ul>
-                <a href="#contact" class="block text-center text-red-600 hover:text-red-800 font-medium">
-                    {{ g.translations.product_learn_more }}
-                    <i class="fas fa-arrow-right ml-1"></i>
-                </a>
             </div>
-        </div>
-        
-        <!-- Cybozu Garoon & Kintone -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="flex items-center justify-center h-16 w-16 bg-yellow-100 text-yellow-600 rounded-lg mb-4 mx-auto">
-                    <i class="fas fa-users-cog text-2xl"></i>
+            
+            <!-- Product 4: IoT Collector -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/products/iot.jpg') }}" class="card-img-top product-image-placeholder" alt="U-Mate IoT Collector" data-product="iot">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('product_iot_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('product_iot_description') }}</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-center mb-3">Cybouz Garoon & Kintone</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.product_cybouz_desc }}</p>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_cybouz_feature1 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_cybouz_feature2 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_cybouz_feature3 }}</span>
-                    </li>
-                </ul>
-                <a href="#contact" class="block text-center text-yellow-600 hover:text-yellow-800 font-medium">
-                    {{ g.translations.product_learn_more }}
-                    <i class="fas fa-arrow-right ml-1"></i>
-                </a>
             </div>
-        </div>
-        
-        <!-- Custom Solutions -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="flex items-center justify-center h-16 w-16 bg-indigo-100 text-indigo-600 rounded-lg mb-4 mx-auto">
-                    <i class="fas fa-cogs text-2xl"></i>
+            
+            <!-- Product 5: Cybouz -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/products/cybouz.jpg') }}" class="card-img-top product-image-placeholder" alt="Cybouz Garoon & Kintone" data-product="cybouz">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('product_cybouz_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('product_cybouz_description') }}</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-center mb-3">{{ g.translations.product_custom_title }}</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.product_custom_desc }}</p>
-                <ul class="space-y-2 mb-6">
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_custom_feature1 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_custom_feature2 }}</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
-                        <span>{{ g.translations.product_custom_feature3 }}</span>
-                    </li>
-                </ul>
-                <a href="#contact" class="block text-center text-indigo-600 hover:text-indigo-800 font-medium">
-                    {{ g.translations.product_learn_more }}
-                    <i class="fas fa-arrow-right ml-1"></i>
-                </a>
+            </div>
+            
+            <!-- Product 6: Custom Solutions -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card product-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/products/custom.jpg') }}" class="card-img-top product-image-placeholder" alt="Custom Solutions" data-product="custom">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('product_custom_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('product_custom_description') }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

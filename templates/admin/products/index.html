@@ -1,0 +1,95 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Quản lý sản phẩm{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Quản lý sản phẩm</h1>
+    <a href="{{ url_for('admin_products_create') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i> Thêm sản phẩm
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        {% if products %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th width="80">#</th>
+                        <th width="100">Hình ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Mô tả</th>
+                        <th width="150">Thứ tự</th>
+                        <th width="150">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            {% if product.image %}
+                            <img src="data:image/png;base64,{{ product.image }}" alt="{{ product.title_vi }}" class="img-thumbnail" style="width: 80px; height: 60px; object-fit: cover;">
+                            {% else %}
+                            <span class="text-muted">N/A</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="fw-bold">{{ product.title_vi }}</div>
+                            <div class="small text-muted">{{ product.title_ja }}</div>
+                        </td>
+                        <td>
+                            <div class="text-truncate" style="max-width: 300px;">{{ product.description_vi[:100] }}...</div>
+                        </td>
+                        <td>{{ product.order }}</td>
+                        <td>
+                            <div class="d-flex gap-2">
+                                <a href="{{ url_for('admin_products_edit', id=product['_id']) }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Sửa
+                                </a>
+                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ product['_id'] }}">
+                                    <i class="bi bi-trash"></i> Xóa
+                                </button>
+                            </div>
+                            
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="deleteModal{{ product['_id'] }}" tabindex="-1" aria-labelledby="deleteModalLabel{{ product['_id'] }}" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel{{ product['_id'] }}">Xác nhận xóa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Bạn có chắc chắn muốn xóa sản phẩm <strong>{{ product.title_vi }}</strong>?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                            <form action="{{ url_for('admin_products_delete', id=product['_id']) }}" method="post">
+                                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <div class="display-6 text-muted mb-3"><i class="bi bi-box"></i></div>
+            <h4 class="text-muted">Chưa có sản phẩm nào</h4>
+            <p class="text-muted">Hãy thêm sản phẩm đầu tiên của bạn</p>
+            <a href="{{ url_for('admin_products_create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-circle me-1"></i> Thêm sản phẩm
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,159 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Dashboard</h1>
+</div>
+
+<div class="row g-4">
+    <!-- Sản phẩm -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="flex-shrink-0 bg-primary-light rounded-circle p-3 me-3">
+                        <i class="bi bi-box fs-3 text-primary"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 text-uppercase fw-bold text-muted">Sản phẩm</h6>
+                        <h2 class="mb-0 display-6 fw-bold">{{ products_count }}</h2>
+                    </div>
+                </div>
+                <a href="{{ url_for('admin_products') }}" class="btn btn-sm btn-primary w-100">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dự án -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="flex-shrink-0 bg-success-light rounded-circle p-3 me-3">
+                        <i class="bi bi-briefcase fs-3 text-success"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 text-uppercase fw-bold text-muted">Dự án</h6>
+                        <h2 class="mb-0 display-6 fw-bold">{{ case_studies_count }}</h2>
+                    </div>
+                </div>
+                <a href="{{ url_for('admin_case_studies') }}" class="btn btn-sm btn-success w-100">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tin tức -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="flex-shrink-0 bg-info-light rounded-circle p-3 me-3">
+                        <i class="bi bi-newspaper fs-3 text-info"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 text-uppercase fw-bold text-muted">Tin tức</h6>
+                        <h2 class="mb-0 display-6 fw-bold">{{ news_count }}</h2>
+                    </div>
+                </div>
+                <a href="{{ url_for('admin_news') }}" class="btn btn-sm btn-info w-100">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Liên hệ -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="flex-shrink-0 bg-danger-light rounded-circle p-3 me-3">
+                        <i class="bi bi-envelope fs-3 text-danger"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 text-uppercase fw-bold text-muted">Liên hệ</h6>
+                        <h2 class="mb-0 display-6 fw-bold">{{ contacts_count }}</h2>
+                    </div>
+                </div>
+                <a href="{{ url_for('admin_contacts') }}" class="btn btn-sm btn-danger w-100">
+                    Xem chi tiết
+                    {% if unread_contacts > 0 %}
+                    <span class="badge bg-white text-danger ms-2">{{ unread_contacts }}</span>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Đối tác -->
+    <div class="col-xl-3 col-md-6">
+        <div class="card border-0 shadow-sm h-100">
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="flex-shrink-0 bg-warning-light rounded-circle p-3 me-3">
+                        <i class="bi bi-building fs-3 text-warning"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0 text-uppercase fw-bold text-muted">Đối tác</h6>
+                        <h2 class="mb-0 display-6 fw-bold">{{ partners_count }}</h2>
+                    </div>
+                </div>
+                <a href="{{ url_for('admin_partners') }}" class="btn btn-sm btn-warning w-100">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-4">
+                <h5 class="card-title fw-bold mb-4">Hướng dẫn nhanh</h5>
+                
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-100 border-primary">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-box me-2 text-primary"></i> Quản lý sản phẩm</h5>
+                                <p class="card-text">Thêm, sửa, xóa sản phẩm. Đảm bảo thêm hình ảnh chất lượng và mô tả đầy đủ.</p>
+                                <a href="{{ url_for('admin_products') }}" class="btn btn-sm btn-outline-primary">Đi đến</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 border-success">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-briefcase me-2 text-success"></i> Quản lý dự án</h5>
+                                <p class="card-text">Thêm các dự án và case study để giới thiệu năng lực và kinh nghiệm của công ty.</p>
+                                <a href="{{ url_for('admin_case_studies') }}" class="btn btn-sm btn-outline-success">Đi đến</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 border-info">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-gear me-2 text-info"></i> Cài đặt chung</h5>
+                                <p class="card-text">Cấu hình các thông tin chung của website như địa chỉ, email, số điện thoại và nội dung.</p>
+                                <a href="{{ url_for('admin_settings') }}" class="btn btn-sm btn-outline-info">Đi đến</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4">
+                        <div class="card h-100 border-warning">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold"><i class="bi bi-building me-2 text-warning"></i> Quản lý đối tác</h5>
+                                <p class="card-text">Thêm, sửa, xóa thông tin đối tác. Đảm bảo thêm logo đối tác chất lượng.</p>
+                                <a href="{{ url_for('admin_partners') }}" class="btn btn-sm btn-outline-warning">Đi đến</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" rx="15" ry="15" fill="#f0f5ff"/>
+  
+  <!-- Factory Outline -->
+  <rect x="40" y="140" width="160" height="120" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  <rect x="60" y="100" width="30" height="40" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  <rect x="100" y="100" width="30" height="40" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  <rect x="140" y="100" width="30" height="40" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  
+  <!-- Cloud -->
+  <circle cx="220" cy="90" r="25" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <circle cx="250" cy="90" r="20" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <circle cx="235" cy="70" r="15" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <circle cx="200" cy="80" r="15" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <rect x="200" y="80" width="50" height="30" fill="#ffffff"/>
+  
+  <!-- Connections -->
+  <path d="M160,160 C200,160 200,90 220,90" stroke="#0077cc" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  <path d="M100,160 C150,160 180,120 220,90" stroke="#0077cc" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+  
+  <!-- Data Visualization -->
+  <rect x="210" y="130" width="70" height="50" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <line x1="220" y1="145" x2="270" y2="145" stroke="#0077cc" stroke-width="2"/>
+  <line x1="220" y1="155" x2="260" y2="155" stroke="#0077cc" stroke-width="2"/>
+  <line x1="220" y1="165" x2="250" y2="165" stroke="#0077cc" stroke-width="2"/>
+  
+  <!-- Camera and Sensors -->
+  <circle cx="100" cy="200" r="15" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <rect x="95" y="190" width="10" height="5" fill="#0077cc"/>
+  
+  <!-- AI Symbol -->
+  <rect x="210" y="190" width="50" height="50" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <text x="225" y="225" font-family="Arial" font-size="20" fill="#0077cc">AI</text>
+  
+  <!-- Connecting Lines -->
+  <path d="M115,200 C150,200 180,215 210,215" stroke="#0077cc" stroke-width="2" fill="none"/>
+</svg>

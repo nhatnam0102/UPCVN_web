@@ -1,0 +1,88 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Quản lý tin tức{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Quản lý tin tức</h1>
+    <a href="{{ url_for('admin_news_create') }}" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-1"></i> Thêm tin tức
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        {% if news %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th width="80">#</th>
+                        <th>Tiêu đề</th>
+                        <th>Mô tả</th>
+                        <th width="120">Ngày đăng</th>
+                        <th width="150">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in news %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>
+                            <div class="fw-bold">{{ item.title_vi }}</div>
+                            <div class="small text-muted">{{ item.title_ja }}</div>
+                        </td>
+                        <td>
+                            <div class="text-truncate" style="max-width: 300px;">{{ item.description_vi[:100] }}...</div>
+                        </td>
+                        <td>{{ item.date.strftime('%d/%m/%Y') }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ url_for('admin_news_edit', id=item.id) }}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ item.id }}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="deleteModal{{ item.id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Xác nhận xóa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Bạn có chắc chắn muốn xóa tin tức <strong>{{ item.title_vi }}</strong>?</p>
+                                            <p class="text-danger"><small>Hành động này không thể hoàn tác.</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                            <form action="{{ url_for('admin_news_delete', id=item.id) }}" method="post">
+                                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <div class="display-6 text-muted mb-3"><i class="bi bi-newspaper"></i></div>
+            <h4 class="text-muted">Chưa có tin tức nào</h4>
+            <p class="text-muted">Hãy thêm tin tức đầu tiên của bạn</p>
+            <a href="{{ url_for('admin_news_create') }}" class="btn btn-primary">
+                <i class="bi bi-plus-circle me-1"></i> Thêm tin tức
+            </a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

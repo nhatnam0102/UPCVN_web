@@ -1,14 +1,14 @@
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">{{ g.translations.contact_title }}</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">{{ g.translations.contact_subtitle }}</p>
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">{{ g.translations.contact_title or "" }}</h2>
+        <p class="text-gray-600 max-w-3xl mx-auto">{{ g.translations.contact_subtitle or "" }}</p>
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
         <!-- Contact Information -->
         <div class="lg:col-span-2">
             <div class="bg-white rounded-xl shadow-md overflow-hidden p-6 h-full">
-                <h3 class="text-2xl font-bold mb-6">{{ g.translations.contact_info_title }}</h3>
+                <h3 class="text-2xl font-bold mb-6">{{ {{ g.translations.contact_info_title }}  or "" }}</h3>
                 
                 <div class="space-y-6">
                     <div class="flex items-start">
@@ -16,7 +16,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-semibold mb-1">{{ g.translations.contact_address_title }}</h4>
+                            <h4 class="text-lg font-semibold mb-1">{{ {{ g.translations.contact_address_title }}  or "" }}</h4>
                             <p class="text-gray-600">〒160-0022 東京都新宿区新宿4丁目3-17 FORECAST新宿SOUTH 7階</p>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-semibold mb-1">{{ g.translations.contact_phone_title }}</h4>
+                            <h4 class="text-lg font-semibold mb-1">{{ {{ g.translations.contact_phone_title }}  or "" }}</h4>
                             <p class="text-gray-600">03-XXXX-XXXX</p>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-semibold mb-1">{{ g.translations.contact_email_title }}</h4>
+                            <h4 class="text-lg font-semibold mb-1">{{ {{ g.translations.contact_email_title }}  or "" }}</h4>
                             <p class="text-gray-600">info@u-mate.jp</p>
                         </div>
                     </div>
@@ -46,7 +46,7 @@
                             <i class="fas fa-clock"></i>
                         </div>
                         <div>
-                            <h4 class="text-lg font-semibold mb-1">{{ g.translations.contact_hours_title }}</h4>
+                            <h4 class="text-lg font-semibold mb-1">{{ {{ g.translations.contact_hours_title }}  or "" }}</h4>
                             <p class="text-gray-600">{{ g.translations.contact_hours_value }}</p>
                         </div>
                     </div>
@@ -57,72 +57,72 @@
         <!-- Contact Form -->
         <div class="lg:col-span-3">
             <div class="bg-white rounded-xl shadow-md overflow-hidden p-6">
-                <h3 class="text-2xl font-bold mb-6">{{ g.translations.contact_form_title }}</h3>
+                <h3 class="text-2xl font-bold mb-6">{{ {{ g.translations.contact_form_title }}  or "" }}</h3>
                 
                 <!-- Success message (shown when URL has contact_success parameter) -->
                 {% if request.args.get('contact_success') %}
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6" role="alert">
-                    <strong class="font-bold">{{ g.translations.contact_success_title }}</strong>
-                    <span class="block sm:inline">{{ g.translations.contact_success_message }}</span>
+                    <strong class="font-bold">{{ {{ g.translations.contact_success_title }}  or "" }}</strong>
+                    <span class="block sm:inline">{{ {{ g.translations.contact_success_message }}  or "" }}</span>
                 </div>
                 {% endif %}
                 
                 <!-- Error message (hidden by default, shown by JS validation) -->
                 <div id="form-error" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 hidden" role="alert">
-                    <strong class="font-bold">{{ g.translations.contact_error_title }}</strong>
-                    <span class="block sm:inline">{{ g.translations.contact_error_message }}</span>
+                    <strong class="font-bold">{{ {{ g.translations.contact_error_title }}  or "" }}</strong>
+                    <span class="block sm:inline">{{ {{ g.translations.contact_error_message }}  or "" }}</span>
                 </div>
                 
                 <form id="contact-form" action="{{ url_for('contact') }}" method="POST" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label for="name" class="block text-gray-700 font-medium mb-2">{{ g.translations.contact_name }} *</label>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">{{ {{ g.translations.contact_name }}  or "" }} *</label>
                             <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                         
                         <div>
-                            <label for="company" class="block text-gray-700 font-medium mb-2">{{ g.translations.contact_company }}</label>
+                            <label for="company" class="block text-gray-700 font-medium mb-2">{{ {{ g.translations.contact_company }}  or "" }}</label>
                             <input type="text" id="company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                         </div>
                     </div>
                     
                     <div>
-                        <label for="email" class="block text-gray-700 font-medium mb-2">{{ g.translations.contact_email }} *</label>
+                        <label for="email" class="block text-gray-700 font-medium mb-2">{{ {{ g.translations.contact_email }}  or "" }} *</label>
                         <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     
                     <div>
-                        <label for="phone" class="block text-gray-700 font-medium mb-2">{{ g.translations.contact_phone }}</label>
+                        <label for="phone" class="block text-gray-700 font-medium mb-2">{{ {{ g.translations.contact_phone }}  or "" }}</label>
                         <input type="tel" id="phone" name="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     </div>
                     
                     <div>
-                        <label for="subject" class="block text-gray-700 font-medium mb-2">{{ g.translations.contact_subject }} *</label>
+                        <label for="subject" class="block text-gray-700 font-medium mb-2">{{ {{ g.translations.contact_subject }}  or "" }} *</label>
                         <select id="subject" name="subject" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="">{{ g.translations.contact_select_subject }}</option>
-                            <option value="product">{{ g.translations.contact_subject_product }}</option>
-                            <option value="service">{{ g.translations.contact_subject_service }}</option>
-                            <option value="partnership">{{ g.translations.contact_subject_partnership }}</option>
-                            <option value="other">{{ g.translations.contact_subject_other }}</option>
+                            <option value="">{{ {{ g.translations.contact_select_subject }}  or "" }}</option>
+                            <option value="product">{{ {{ g.translations.contact_subject_product }}  or "" }}</option>
+                            <option value="service">{{ {{ g.translations.contact_subject_service }}  or "" }}</option>
+                            <option value="partnership">{{ {{ g.translations.contact_subject_partnership }}  or "" }}</option>
+                            <option value="other">{{ {{ g.translations.contact_subject_other }}  or "" }}</option>
                         </select>
                     </div>
                     
                     <div>
-                        <label for="message" class="block text-gray-700 font-medium mb-2">{{ g.translations.contact_message }} *</label>
+                        <label for="message" class="block text-gray-700 font-medium mb-2">{{ {{ g.translations.contact_message }}  or "" }} *</label>
                         <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
                     </div>
                     
                     <div class="flex items-center">
                         <input type="checkbox" id="privacy" name="privacy" required class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
                         <label for="privacy" class="ml-2 block text-gray-700">
-                            {{ g.translations.contact_privacy_agreement }}
-                            <a href="#" class="text-blue-600 hover:text-blue-800">{{ g.translations.contact_privacy_policy }}</a>
+                            {{ {{ g.translations.contact_privacy_agreement }}  or "" }}
+                            <a href="#" class="text-blue-600 hover:text-blue-800">{{ {{ g.translations.contact_privacy_policy }}  or "" }}</a>
                         </label>
                     </div>
                     
                     <div>
                         <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300">
-                            {{ g.translations.contact_submit }}
+                            {{ {{ g.translations.contact_submit }}  or "" }}
                         </button>
                     </div>
                 </form>

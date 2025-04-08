@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e6f2ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cce6ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="300" rx="15" ry="15" fill="url(#grad1)"/>
+  
+  <!-- Various Industry Segments -->
+  <!-- Manufacturing -->
+  <rect x="40" y="40" width="80" height="60" rx="10" ry="10" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <rect x="60" y="60" width="20" height="10" fill="#0077cc"/>
+  <rect x="90" y="60" width="20" height="10" fill="#0077cc"/>
+  <rect x="60" y="80" width="50" height="5" fill="#0077cc"/>
+  
+  <!-- Healthcare -->
+  <rect x="180" y="40" width="80" height="60" rx="10" ry="10" fill="#ffffff" stroke="#00aa55" stroke-width="2"/>
+  <circle cx="220" cy="55" r="10" fill="#00aa55"/>
+  <line x1="210" y1="70" x2="230" y2="70" stroke="#00aa55" stroke-width="2"/>
+  <line x1="210" y1="80" x2="230" y2="80" stroke="#00aa55" stroke-width="2"/>
+  <line x1="210" y1="90" x2="220" y2="90" stroke="#00aa55" stroke-width="2"/>
+  
+  <!-- Retail -->
+  <rect x="40" y="120" width="80" height="60" rx="10" ry="10" fill="#ffffff" stroke="#cc6600" stroke-width="2"/>
+  <rect x="50" y="140" width="20" height="30" fill="#cc6600"/>
+  <rect x="80" y="150" width="30" height="20" fill="#cc6600"/>
+  <rect x="60" y="130" width="40" height="5" fill="#cc6600"/>
+  
+  <!-- Logistics -->
+  <rect x="180" y="120" width="80" height="60" rx="10" ry="10" fill="#ffffff" stroke="#6633cc" stroke-width="2"/>
+  <rect x="190" y="135" width="20" height="15" fill="#6633cc"/>
+  <rect x="220" y="135" width="20" height="15" fill="#6633cc"/>
+  <rect x="205" y="150" width="20" height="20" fill="#6633cc"/>
+  
+  <!-- Agriculture -->
+  <rect x="40" y="200" width="80" height="60" rx="10" ry="10" fill="#ffffff" stroke="#33cc33" stroke-width="2"/>
+  <path d="M60,250 C60,230 100,230 100,250" stroke="#33cc33" stroke-width="2" fill="none"/>
+  <path d="M70,250 C70,235 90,235 90,250" stroke="#33cc33" stroke-width="2" fill="none"/>
+  <line x1="80" y1="250" x2="80" y2="230" stroke="#33cc33" stroke-width="2"/>
+  
+  <!-- Energy -->
+  <rect x="180" y="200" width="80" height="60" rx="10" ry="10" fill="#ffffff" stroke="#ffcc00" stroke-width="2"/>
+  <path d="M220,215 L215,230 L225,230 L220,245" stroke="#ffcc00" stroke-width="3" fill="none"/>
+  <circle cx="220" cy="230" r="15" fill="none" stroke="#ffcc00" stroke-width="2"/>
+  
+  <!-- Connecting IoT/AI Infrastructure -->
+  <circle cx="150" cy="150" r="25" fill="#ffffff" stroke="#0055aa" stroke-width="2"/>
+  <text x="135" y="155" font-family="Arial" font-size="14" fill="#0055aa">IoT+AI</text>
+  
+  <!-- Connections -->
+  <path d="M80,100 C100,120 120,130 150,150" stroke="#0077cc" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M80,120 C100,130 130,140 150,150" stroke="#cc6600" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M80,200 C100,180 130,160 150,150" stroke="#33cc33" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M220,100 C200,120 180,130 150,150" stroke="#00aa55" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M220,120 C200,130 170,140 150,150" stroke="#6633cc" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+  <path d="M220,200 C200,180 170,160 150,150" stroke="#ffcc00" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+</svg>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" rx="15" ry="15" fill="#f0fff5"/>
+  
+  <!-- App Builder Platform -->
+  <rect x="50" y="50" width="200" height="130" rx="10" ry="10" fill="#ffffff" stroke="#00aa55" stroke-width="2"/>
+  
+  <!-- Drag-and-Drop Elements -->
+  <rect x="60" y="60" width="80" height="20" rx="5" ry="5" fill="#e1f5e8" stroke="#00aa55" stroke-width="1"/>
+  <text x="75" y="75" font-family="Arial" font-size="12" fill="#00aa55">Form Field</text>
+  
+  <rect x="60" y="90" width="80" height="20" rx="5" ry="5" fill="#e1f5e8" stroke="#00aa55" stroke-width="1"/>
+  <text x="75" y="105" font-family="Arial" font-size="12" fill="#00aa55">Button</text>
+  
+  <rect x="60" y="120" width="80" height="20" rx="5" ry="5" fill="#e1f5e8" stroke="#00aa55" stroke-width="1"/>
+  <text x="75" y="135" font-family="Arial" font-size="12" fill="#00aa55">List View</text>
+  
+  <rect x="60" y="150" width="80" height="20" rx="5" ry="5" fill="#e1f5e8" stroke="#00aa55" stroke-width="1"/>
+  <text x="75" y="165" font-family="Arial" font-size="12" fill="#00aa55">Chart</text>
+  
+  <!-- App Canvas -->
+  <rect x="150" y="60" width="90" height="110" rx="5" ry="5" fill="#ffffff" stroke="#00aa55" stroke-width="1" stroke-dasharray="5,5"/>
+  
+  <!-- Drag Arrow -->
+  <path d="M140,100 L150,100" stroke="#00aa55" stroke-width="2" stroke-dasharray="2,2" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00aa55"/>
+    </marker>
+  </defs>
+  
+  <!-- Team Members -->
+  <circle cx="80" cy="230" r="15" fill="#0077cc" stroke="#0055aa" stroke-width="1"/>
+  <text x="76" y="235" font-family="Arial" font-size="15" fill="#ffffff">1</text>
+  
+  <circle cx="120" cy="230" r="15" fill="#0077cc" stroke="#0055aa" stroke-width="1"/>
+  <text x="116" y="235" font-family="Arial" font-size="15" fill="#ffffff">2</text>
+  
+  <circle cx="160" cy="230" r="15" fill="#0077cc" stroke="#0055aa" stroke-width="1"/>
+  <text x="156" y="235" font-family="Arial" font-size="15" fill="#ffffff">3</text>
+  
+  <!-- Communication Lines -->
+  <path d="M95,230 L105,230" stroke="#0077cc" stroke-width="1"/>
+  <path d="M135,230 L145,230" stroke="#0077cc" stroke-width="1"/>
+  
+  <!-- Workflow Optimization -->
+  <rect x="210" y="200" width="60" height="60" rx="5" ry="5" fill="#ffffff" stroke="#00aa55" stroke-width="2"/>
+  <path d="M220,230 L260,230" stroke="#00aa55" stroke-width="2" marker-end="url(#arrow2)"/>
+  <path d="M240,210 L240,250" stroke="#00aa55" stroke-width="2" marker-end="url(#arrow2)"/>
+  <defs>
+    <marker id="arrow2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00aa55"/>
+    </marker>
+  </defs>
+  
+  <!-- Connection between Team and App -->
+  <path d="M120,210 C120,190 120,190 150,150" stroke="#0077cc" stroke-width="1" fill="none" stroke-dasharray="3,3"/>
+</svg>

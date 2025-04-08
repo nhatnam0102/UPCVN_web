@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" rx="15" ry="15" fill="#f0f5ff"/>
+  
+  <!-- Meeting Table -->
+  <rect x="50" y="180" width="200" height="60" rx="5" ry="5" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  
+  <!-- Consultant -->
+  <circle cx="90" cy="160" r="15" fill="#0055aa"/>
+  <rect x="85" y="175" width="10" height="20" fill="#0055aa"/>
+  
+  <!-- Client -->
+  <circle cx="150" cy="160" r="15" fill="#0077cc"/>
+  <rect x="145" y="175" width="10" height="20" fill="#0077cc"/>
+  
+  <!-- Developer -->
+  <circle cx="210" cy="160" r="15" fill="#0099ee"/>
+  <rect x="205" y="175" width="10" height="20" fill="#0099ee"/>
+  
+  <!-- Requirements Document -->
+  <rect x="70" y="200" width="40" height="30" fill="#ffffff" stroke="#0055aa" stroke-width="1"/>
+  <line x1="80" y1="210" x2="100" y2="210" stroke="#0055aa" stroke-width="1"/>
+  <line x1="80" y1="220" x2="95" y2="220" stroke="#0055aa" stroke-width="1"/>
+  
+  <!-- Software System Wireframe -->
+  <rect x="130" y="200" width="40" height="30" fill="#ffffff" stroke="#0077cc" stroke-width="1"/>
+  <rect x="140" y="205" width="20" height="10" fill="#e1e8f5"/>
+  <rect x="140" y="220" width="20" height="5" fill="#0077cc"/>
+  
+  <!-- Integration Diagram -->
+  <rect x="190" y="200" width="40" height="30" fill="#ffffff" stroke="#0099ee" stroke-width="1"/>
+  <circle cx="200" cy="210" r="5" fill="none" stroke="#0099ee" stroke-width="1"/>
+  <circle cx="220" cy="210" r="5" fill="none" stroke="#0099ee" stroke-width="1"/>
+  <line x1="205" y1="210" x2="215" y2="210" stroke="#0099ee" stroke-width="1"/>
+  <rect x="195" y="220" width="30" height="5" fill="#0099ee"/>
+  
+  <!-- Existing System -->
+  <rect x="40" y="60" width="80" height="60" rx="5" ry="5" fill="#ffffff" stroke="#0055aa" stroke-width="2"/>
+  <text x="55" y="95" font-family="Arial" font-size="12" fill="#0055aa">Existing</text>
+  
+  <!-- New System -->
+  <rect x="180" y="60" width="80" height="60" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <text x="200" y="95" font-family="Arial" font-size="12" fill="#0077cc">New</text>
+  
+  <!-- Integration -->
+  <path d="M120,90 L180,90" stroke="#0099ee" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0099ee"/>
+    </marker>
+  </defs>
+  
+  <!-- Continuous Improvement Cycle -->
+  <circle cx="150" cy="30" r="20" fill="none" stroke="#0077cc" stroke-width="2"/>
+  <path d="M150,10 L145,5 L155,5 Z" fill="#0077cc"/>
+  <text x="140" y="35" font-family="Arial" font-size="12" fill="#0077cc">↻</text>
+</svg>

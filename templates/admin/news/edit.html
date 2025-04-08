@@ -1,0 +1,81 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Chỉnh sửa tin tức{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Chỉnh sửa tin tức</h1>
+    <a href="{{ url_for('admin_news') }}" class="btn btn-secondary">
+        <i class="bi bi-arrow-left me-1"></i> Quay lại
+    </a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+        <form action="{{ url_for('admin_news_edit', id=news.id) }}" method="post">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Tiếng Việt</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="title_vi" class="form-label fw-bold">Tiêu đề (Tiếng Việt) <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="title_vi" name="title_vi" value="{{ news.title_vi }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description_vi" class="form-label fw-bold">Mô tả ngắn (Tiếng Việt) <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="description_vi" name="description_vi" rows="3" required>{{ news.description_vi }}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="content_vi" class="form-label fw-bold">Nội dung (Tiếng Việt) <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="content_vi" name="content_vi" rows="10" required>{{ news.content_vi }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="card h-100">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">Tiếng Nhật</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="title_ja" class="form-label fw-bold">Tiêu đề (Tiếng Nhật) <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="title_ja" name="title_ja" value="{{ news.title_ja }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description_ja" class="form-label fw-bold">Mô tả ngắn (Tiếng Nhật) <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="description_ja" name="description_ja" rows="3" required>{{ news.description_ja }}</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="content_ja" class="form-label fw-bold">Nội dung (Tiếng Nhật) <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="content_ja" name="content_ja" rows="10" required>{{ news.content_ja }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="date" class="form-label fw-bold">Ngày đăng <span class="text-danger">*</span></label>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ news.date.strftime('%Y-%m-%d') }}" required>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <hr>
+                    <div class="d-flex gap-2 justify-content-end">
+                        <a href="{{ url_for('admin_news') }}" class="btn btn-secondary">Hủy</a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle me-1"></i> Cập nhật tin tức
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

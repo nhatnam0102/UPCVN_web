@@ -1,0 +1,64 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Cài đặt hệ thống{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Cài đặt hệ thống</h1>
+</div>
+
+<form action="{{ url_for('admin_settings_update') }}" method="post">
+    {% if settings %}
+        {% for group, group_settings in settings.items() %}
+        <div class="card border-0 shadow-sm mb-4">
+            <div class="card-header bg-light py-3">
+                <h5 class="mb-0 fw-bold">{{ group|capitalize }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row g-4">
+                    {% for setting in group_settings %}
+                    <div class="col-md-6">
+                        <div class="card h-100">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h6 class="card-title mb-0">{{ setting['key']|capitalize }}</h6>
+                                <span class="badge bg-primary">{{ setting['group'] }}</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Tiếng Việt</label>
+                                    <textarea class="form-control" name="setting_{{ setting['id'] }}_vi" rows="4">{{ setting['value_vi'] }}</textarea>
+                                </div>
+                                <div class="mb-0">
+                                    <label class="form-label fw-bold">Tiếng Nhật</label>
+                                    <textarea class="form-control" name="setting_{{ setting['id'] }}_ja" rows="4">{{ setting['value_ja'] }}</textarea>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-white">
+                                <small class="text-muted">Cập nhật lần cuối: {{ setting['updated_at'].strftime('%d/%m/%Y %H:%M') if setting['updated_at'] else 'N/A' }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        
+        <div class="text-end">
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-check-circle me-1"></i> Lưu thay đổi
+            </button>
+        </div>
+    {% else %}
+        <div class="card border-0 shadow-sm">
+            <div class="card-body p-0">
+                <div class="text-center py-5">
+                    <div class="display-6 text-muted mb-3"><i class="bi bi-gear"></i></div>
+                    <h4 class="text-muted">Chưa có cài đặt nào</h4>
+                    <p class="text-muted">Các cài đặt hệ thống sẽ hiển thị ở đây</p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</form>
+{% endblock %}

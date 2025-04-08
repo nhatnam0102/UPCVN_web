@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" rx="15" ry="15" fill="#f5f0ff"/>
+  
+  <!-- Central Cloud Platform -->
+  <circle cx="150" cy="120" r="40" fill="#ffffff" stroke="#6633cc" stroke-width="2"/>
+  <text x="132" y="125" font-family="Arial" font-size="14" fill="#6633cc">IoT</text>
+  
+  <!-- Connected Devices -->
+  <!-- Sensor 1 -->
+  <rect x="40" y="40" width="30" height="20" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="1"/>
+  <circle cx="55" cy="50" r="5" fill="#6633cc"/>
+  
+  <!-- Sensor 2 -->
+  <rect x="230" y="40" width="30" height="20" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="1"/>
+  <circle cx="245" cy="50" r="5" fill="#6633cc"/>
+  
+  <!-- Factory Machine 1 -->
+  <rect x="40" y="200" width="60" height="40" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  <rect x="50" y="190" width="10" height="10" fill="#6633cc"/>
+  <rect x="70" y="190" width="10" height="10" fill="#6633cc"/>
+  
+  <!-- Factory Machine 2 -->
+  <rect x="200" y="200" width="60" height="40" fill="#e1e8f5" stroke="#0055aa" stroke-width="2"/>
+  <rect x="210" y="190" width="10" height="10" fill="#6633cc"/>
+  <rect x="230" y="190" width="10" height="10" fill="#6633cc"/>
+  
+  <!-- Mobile Device -->
+  <rect x="140" y="220" width="20" height="30" rx="3" ry="3" fill="#ffffff" stroke="#0077cc" stroke-width="1"/>
+  <rect x="145" y="225" width="10" height="15" fill="#6633cc"/>
+  
+  <!-- Connections with Security Symbol -->
+  <path d="M55,50 C80,70 100,90 150,120" stroke="#6633cc" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <circle cx="100" cy="85" r="8" fill="#ffffff" stroke="#6633cc" stroke-width="1"/>
+  <text x="97" y="89" font-family="Arial" font-size="10" fill="#6633cc">🔒</text>
+  
+  <path d="M245,50 C220,70 200,90 150,120" stroke="#6633cc" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <circle cx="200" cy="85" r="8" fill="#ffffff" stroke="#6633cc" stroke-width="1"/>
+  <text x="197" y="89" font-family="Arial" font-size="10" fill="#6633cc">🔒</text>
+  
+  <path d="M70,200 C90,180 120,150 150,120" stroke="#6633cc" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <circle cx="110" cy="160" r="8" fill="#ffffff" stroke="#6633cc" stroke-width="1"/>
+  <text x="107" y="164" font-family="Arial" font-size="10" fill="#6633cc">🔒</text>
+  
+  <path d="M230,200 C210,180 180,150 150,120" stroke="#6633cc" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <circle cx="190" cy="160" r="8" fill="#ffffff" stroke="#6633cc" stroke-width="1"/>
+  <text x="187" y="164" font-family="Arial" font-size="10" fill="#6633cc">🔒</text>
+  
+  <path d="M150,220 C150,190 150,150 150,120" stroke="#6633cc" stroke-width="1" fill="none" stroke-dasharray="5,5"/>
+  <circle cx="150" cy="170" r="8" fill="#ffffff" stroke="#6633cc" stroke-width="1"/>
+  <text x="147" y="174" font-family="Arial" font-size="10" fill="#6633cc">🔒</text>
+  
+  <!-- Monitoring Visuals -->
+  <rect x="100" y="160" width="100" height="40" rx="5" ry="5" fill="#ffffff" stroke="#6633cc" stroke-width="2"/>
+  <line x1="110" y1="175" x2="150" y2="175" stroke="#6633cc" stroke-width="1"/>
+  <line x1="110" y1="185" x2="140" y2="185" stroke="#6633cc" stroke-width="1"/>
+  <circle cx="170" cy="180" r="10" fill="#ffffff" stroke="#6633cc" stroke-width="1"/>
+  <path d="M165,180 L170,175 L175,180 L170,185 Z" fill="#6633cc"/>
+</svg>

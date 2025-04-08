@@ -1,193 +1,78 @@
-<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gradient">{{ g.translations.case_studies_title }}</h2>
-        <p class="text-gray-600 max-w-3xl mx-auto">{{ g.translations.case_studies_subtitle }}</p>
-    </div>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Case Study 1 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="h-48 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
-                    <!-- Case Study Image (using SVG instead of image file) -->
-                    <svg class="w-3/4 h-auto" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="20" width="140" height="100" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <rect x="50" y="40" width="100" height="15" rx="2" fill="#4299e1"/>
-                        <rect x="50" y="65" width="50" height="10" rx="2" fill="#a0aec0"/>
-                        <rect x="50" y="85" width="80" height="10" rx="2" fill="#a0aec0"/>
-                        <circle cx="145" cy="80" r="15" fill="#38b2ac"/>
-                        <path d="M138,80 L143,85 L153,75" stroke="white" stroke-width="2" fill="none"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4">{{ g.translations.case_kintone_title }}</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.case_kintone_desc }}</p>
-                <div class="flex items-center text-gray-500 text-sm mb-4">
-                    <i class="fas fa-building mr-2"></i>
-                    <span>{{ g.translations.case_industry }}: {{ g.translations.case_kintone_industry }}</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">Kintone</span>
-                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Cloud</span>
-                    </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        {{ g.translations.case_read_more }} <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
-                </div>
+<section id="case-studies" class="section-padding bg-light">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center">
+                <h2 class="display-4 mb-3 text-primary">{{ g.translations.get('case_studies_title') }}</h2>
+                <p class="lead">{{ g.translations.get('case_studies_description') }}</p>
             </div>
         </div>
         
-        <!-- Case Study 2 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="h-48 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
-                    <!-- Case Study Image (using SVG instead of image file) -->
-                    <svg class="w-3/4 h-auto" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="20" y="20" width="80" height="120" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <rect x="110" y="20" width="70" height="50" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <circle cx="145" cy="45" r="15" fill="#805ad5"/>
-                        <path d="M145,35 L145,55 M135,45 L155,45" stroke="white" stroke-width="2"/>
-                        <rect x="110" y="80" width="70" height="60" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <rect x="125" y="90" width="40" height="10" rx="2" fill="#a0aec0"/>
-                        <rect x="125" y="110" width="40" height="10" rx="2" fill="#a0aec0"/>
-                        <path d="M50,60 L70,60 M50,70 L60,70 M50,80 L65,80 M50,90 L55,90" stroke="#4a5568" stroke-width="2"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4">{{ g.translations.case_ai_inspection_title }}</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.case_ai_inspection_desc }}</p>
-                <div class="flex items-center text-gray-500 text-sm mb-4">
-                    <i class="fas fa-building mr-2"></i>
-                    <span>{{ g.translations.case_industry }}: {{ g.translations.case_ai_inspection_industry }}</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">AI</span>
-                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs">Automation</span>
+        <div class="row g-4">
+            <!-- Case Study 1: Kintone -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card case-study-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/case_studies/case_kintone.jpg') }}" class="card-img-top case-study-image-placeholder" alt="Kintone Integration" data-case="case_kintone">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('case_kintone_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('case_kintone_description') }}</p>
                     </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        {{ g.translations.case_read_more }} <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Case Study 3 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="h-48 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
-                    <!-- Case Study Image (using SVG instead of image file) -->
-                    <svg class="w-3/4 h-auto" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="30" y="30" width="140" height="100" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <circle cx="60" cy="55" r="15" fill="#9ae6b4" stroke="#38a169" stroke-width="2"/>
-                        <circle cx="100" cy="55" r="15" fill="#fbd38d" stroke="#dd6b20" stroke-width="2"/>
-                        <circle cx="140" cy="55" r="15" fill="#feb2b2" stroke="#e53e3e" stroke-width="2"/>
-                        <rect x="45" y="90" width="30" height="30" rx="2" fill="#cbd5e0"/>
-                        <rect x="85" y="90" width="30" height="30" rx="2" fill="#cbd5e0"/>
-                        <rect x="125" y="90" width="30" height="30" rx="2" fill="#cbd5e0"/>
-                        <path d="M55,100 L65,110 M65,100 L55,110" stroke="white" stroke-width="2"/>
-                        <path d="M95,105 L105,105" stroke="white" stroke-width="2"/>
-                        <path d="M135,105 C138,102 142,102 145,105 C148,108 148,112 145,115" stroke="white" stroke-width="2" fill="none"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4">{{ g.translations.case_foreign_labor_title }}</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.case_foreign_labor_desc }}</p>
-                <div class="flex items-center text-gray-500 text-sm mb-4">
-                    <i class="fas fa-building mr-2"></i>
-                    <span>{{ g.translations.case_industry }}: {{ g.translations.case_foreign_labor_industry }}</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">AI</span>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs">HR</span>
+            
+            <!-- Case Study 2: AI Inspection -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card case-study-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/case_studies/case_ai_inspection.jpg') }}" class="card-img-top case-study-image-placeholder" alt="AI Inspection" data-case="case_ai_inspection">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('case_ai_inspection_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('case_ai_inspection_description') }}</p>
                     </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        {{ g.translations.case_read_more }} <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Case Study 4 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="h-48 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
-                    <!-- Case Study Image (using SVG instead of image file) -->
-                    <svg class="w-3/4 h-auto" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="40" y="30" width="120" height="80" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <path d="M50,45 L150,45" stroke="#4a5568" stroke-width="1"/>
-                        <path d="M60,40 L70,40" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M80,40 L90,40" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
-                        <path d="M100,40 L110,40" stroke="#4a5568" stroke-width="2" stroke-linecap="round"/>
-                        <rect x="60" y="55" width="80" height="10" rx="2" fill="#a0aec0"/>
-                        <rect x="60" y="75" width="40" height="10" rx="2" fill="#a0aec0"/>
-                        <rect x="60" y="95" width="60" height="10" rx="2" fill="#a0aec0"/>
-                        <rect x="40" y="120" width="60" height="15" rx="5" fill="#4299e1"/>
-                        <rect x="110" y="120" width="50" height="15" rx="5" fill="#e53e3e"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4">{{ g.translations.case_ai_ocr_title }}</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.case_ai_ocr_desc }}</p>
-                <div class="flex items-center text-gray-500 text-sm mb-4">
-                    <i class="fas fa-building mr-2"></i>
-                    <span>{{ g.translations.case_industry }}: {{ g.translations.case_ai_ocr_industry }}</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">AI-OCR</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs">Document</span>
+            
+            <!-- Case Study 3: Foreign Labor -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card case-study-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/case_studies/case_foreign_labor.jpg') }}" class="card-img-top case-study-image-placeholder" alt="Foreign Labor Management" data-case="case_foreign_labor">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('case_foreign_labor_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('case_foreign_labor_description') }}</p>
                     </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        {{ g.translations.case_read_more }} <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- Case Study 5 -->
-        <div class="bg-white rounded-xl shadow-md overflow-hidden card-hover animate-on-scroll">
-            <div class="p-6">
-                <div class="h-48 bg-gray-100 rounded-lg mb-6 flex items-center justify-center">
-                    <!-- Case Study Image (using SVG instead of image file) -->
-                    <svg class="w-3/4 h-auto" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="50" y="40" width="100" height="80" rx="5" fill="#e2e8f0" stroke="#4a5568" stroke-width="2"/>
-                        <circle cx="100" cy="65" r="20" fill="#fed7d7" stroke="#e53e3e" stroke-width="2"/>
-                        <path d="M95,95 L105,95 M95,105 L105,105" stroke="#4a5568" stroke-width="2"/>
-                        <path d="M70,65 L85,65" stroke="#4a5568" stroke-width="2"/>
-                        <path d="M115,65 L130,65" stroke="#4a5568" stroke-width="2"/>
-                        <path d="M90,50 C93,47 97,47 100,50 C103,53 107,53 110,50" stroke="#4a5568" stroke-width="1" fill="none"/>
-                        <circle cx="100" cy="65" r="5" fill="#e53e3e"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold mb-4">{{ g.translations.case_temperature_title }}</h3>
-                <p class="text-gray-600 mb-4">{{ g.translations.case_temperature_desc }}</p>
-                <div class="flex items-center text-gray-500 text-sm mb-4">
-                    <i class="fas fa-building mr-2"></i>
-                    <span>{{ g.translations.case_industry }}: {{ g.translations.case_temperature_industry }}</span>
-                </div>
-                <div class="flex justify-between items-center">
-                    <div class="flex space-x-2">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">AI</span>
-                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs">IoT</span>
+            
+            <!-- Case Study 4: AI-OCR -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card case-study-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/case_studies/case_ai_ocr.jpg') }}" class="card-img-top case-study-image-placeholder" alt="AI-OCR" data-case="case_ai_ocr">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('case_ai_ocr_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('case_ai_ocr_description') }}</p>
                     </div>
-                    <a href="#" class="text-blue-600 hover:text-blue-800">
-                        {{ g.translations.case_read_more }} <i class="fas fa-arrow-right ml-1"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-        
-        <!-- More Cases Link -->
-        <div class="bg-gray-50 rounded-xl border-2 border-dashed border-gray-300 overflow-hidden flex items-center justify-center card-hover animate-on-scroll p-6">
-            <div class="text-center">
-                <div class="flex items-center justify-center h-16 w-16 bg-blue-100 text-blue-600 rounded-full mb-4 mx-auto">
-                    <i class="fas fa-plus text-2xl"></i>
+            
+            <!-- Case Study 5: Temperature -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card case-study-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/case_studies/case_temperature.jpg') }}" class="card-img-top case-study-image-placeholder" alt="Temperature Monitoring" data-case="case_temperature">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('case_temperature_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('case_temperature_description') }}</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-4">{{ g.translations.case_more_title }}</h3>
-                <p class="text-gray-600 mb-6">{{ g.translations.case_more_desc }}</p>
-                <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded-lg transition duration-300">
-                    {{ g.translations.case_contact_us }}
-                </a>
+            </div>
+            
+            <!-- Case Study 6: More Cases -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card case-study-card h-100 border-0 shadow">
+                    <img src="{{ url_for('static', filename='images/case_studies/case_more.jpg') }}" class="card-img-top case-study-image-placeholder" alt="More Case Studies" data-case="case_more">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{ g.translations.get('case_more_title') }}</h5>
+                        <p class="card-text">{{ g.translations.get('case_more_description') }}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>

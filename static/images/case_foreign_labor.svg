@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="300" rx="15" ry="15" fill="#fffbf0"/>
+  
+  <!-- Digital Platform -->
+  <rect x="100" y="50" width="100" height="70" rx="10" ry="10" fill="#ffffff" stroke="#0077cc" stroke-width="2"/>
+  <text x="120" y="85" font-family="Arial" font-size="14" fill="#0077cc">System</text>
+  <rect x="115" y="95" width="70" height="15" rx="5" ry="5" fill="#ffcc44" stroke="#0077cc" stroke-width="1"/>
+  
+  <!-- AI Component -->
+  <circle cx="220" cy="85" r="20" fill="#ffffff" stroke="#00aa55" stroke-width="2"/>
+  <text x="210" y="90" font-family="Arial" font-size="14" fill="#00aa55">AI</text>
+  
+  <!-- Connection to AI -->
+  <path d="M200,85 L220,85" stroke="#00aa55" stroke-width="1.5" fill="none"/>
+  
+  <!-- Workers -->
+  <circle cx="50" cy="180" r="15" fill="#ffcc44" stroke="#0077cc" stroke-width="1.5"/>
+  <rect x="45" y="195" width="10" height="20" fill="#ffcc44"/>
+  <text x="45" y="225" font-family="Arial" font-size="12" fill="#0077cc">🇯🇵</text>
+  
+  <circle cx="100" cy="180" r="15" fill="#ffcc44" stroke="#0077cc" stroke-width="1.5"/>
+  <rect x="95" y="195" width="10" height="20" fill="#ffcc44"/>
+  <text x="95" y="225" font-family="Arial" font-size="12" fill="#0077cc">🇻🇳</text>
+  
+  <circle cx="150" cy="180" r="15" fill="#ffcc44" stroke="#0077cc" stroke-width="1.5"/>
+  <rect x="145" y="195" width="10" height="20" fill="#ffcc44"/>
+  <text x="145" y="225" font-family="Arial" font-size="12" fill="#0077cc">🇨🇳</text>
+  
+  <circle cx="200" cy="180" r="15" fill="#ffcc44" stroke="#0077cc" stroke-width="1.5"/>
+  <rect x="195" y="195" width="10" height="20" fill="#ffcc44"/>
+  <text x="195" y="225" font-family="Arial" font-size="12" fill="#0077cc">🇵🇭</text>
+  
+  <circle cx="250" cy="180" r="15" fill="#ffcc44" stroke="#0077cc" stroke-width="1.5"/>
+  <rect x="245" y="195" width="10" height="20" fill="#ffcc44"/>
+  <text x="245" y="225" font-family="Arial" font-size="12" fill="#0077cc">🇲🇾</text>
+  
+  <!-- Management Features -->
+  <!-- Scheduling -->
+  <rect x="40" y="250" width="60" height="30" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="1.5"/>
+  <text x="45" y="270" font-family="Arial" font-size="10" fill="#0077cc">Schedule</text>
+  
+  <!-- Performance -->
+  <rect x="120" y="250" width="60" height="30" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="1.5"/>
+  <text x="125" y="270" font-family="Arial" font-size="10" fill="#0077cc">Performance</text>
+  
+  <!-- Communication -->
+  <rect x="200" y="250" width="60" height="30" rx="5" ry="5" fill="#ffffff" stroke="#0077cc" stroke-width="1.5"/>
+  <text x="202" y="270" font-family="Arial" font-size="10" fill="#0077cc">Communication</text>
+  
+  <!-- Connections -->
+  <path d="M150,120 C150,140 150,150 150,160" stroke="#0077cc" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+  <path d="M150,120 C110,140 70,150 50,160" stroke="#0077cc" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+  <path d="M150,120 C130,140 110,150 100,160" stroke="#0077cc" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+  <path d="M150,120 C170,140 190,150 200,160" stroke="#0077cc" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+  <path d="M150,120 C190,140 230,150 250,160" stroke="#0077cc" stroke-width="1.5" fill="none" stroke-dasharray="4,4"/>
+</svg>

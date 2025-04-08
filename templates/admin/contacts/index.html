@@ -1,0 +1,87 @@
+{% extends 'admin/base.html' %}
+
+{% block title %}Quản lý liên hệ{% endblock %}
+
+{% block content %}
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 fw-bold">Quản lý liên hệ</h1>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        {% if contacts %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="bg-light">
+                    <tr>
+                        <th width="80">#</th>
+                        <th>Người gửi</th>
+                        <th>Email</th>
+                        <th>Chủ đề</th>
+                        <th width="120">Ngày gửi</th>
+                        <th width="100">Trạng thái</th>
+                        <th width="150">Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contact in contacts %}
+                    <tr class="{{ 'table-primary' if not contact.is_read else '' }}">
+                        <td>{{ loop.index }}</td>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.email }}</td>
+                        <td>{{ contact.subject }}</td>
+                        <td>{{ contact.created_at.strftime('%d/%m/%Y') }}</td>
+                        <td>
+                            {% if contact.is_read %}
+                            <span class="badge bg-success">Đã đọc</span>
+                            {% else %}
+                            <span class="badge bg-primary">Chưa đọc</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group">
+                                <a href="{{ url_for('admin_contacts_view', id=contact.id) }}" class="btn btn-sm btn-primary">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ contact.id }}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Delete Modal -->
+                            <div class="modal fade" id="deleteModal{{ contact.id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">Xác nhận xóa</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Bạn có chắc chắn muốn xóa liên hệ từ <strong>{{ contact.name }}</strong>?</p>
+                                            <p class="text-danger"><small>Hành động này không thể hoàn tác.</small></p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                                            <form action="{{ url_for('admin_contacts_delete', id=contact.id) }}" method="post">
+                                                <button type="submit" class="btn btn-danger">Xóa</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5">
+            <div class="display-6 text-muted mb-3"><i class="bi bi-envelope"></i></div>
+            <h4 class="text-muted">Chưa có liên hệ nào</h4>
+            <p class="text-muted">Các liên hệ từ khách hàng sẽ hiển thị ở đây</p>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
