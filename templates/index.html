@@ -370,7 +370,7 @@
                 {% for partner in partners %}
                 <div class="col-4 col-md-2 text-center">
                     <a href="{{ partner['website'] }}" target="_blank">
-                        <img src="data:image/png;base64,{{ partner.image }}" alt="{{ partner.name_vi if g.language == 'vi' else partner.name_ja }}" class="img-fluid opacity-75 partner-logo">
+                        <img src="{{ partner.image }}" alt="{{ partner.name_vi if g.language == 'vi' else partner.name_ja }}" class="img-fluid opacity-75 partner-logo">
                     </a>
                 </div>
                 {% endfor %}
