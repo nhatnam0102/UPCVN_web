@@ -7,6 +7,16 @@
     <h1 class="h3 mb-0 fw-bold">Quản lý liên hệ</h1>
 </div>
 
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="flash-messages">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
 <div class="card border-0 shadow-sm">
     <div class="card-body p-0">
         {% if contacts %}
@@ -39,17 +49,17 @@
                             {% endif %}
                         </td>
                         <td>
-                            <div class="btn-group">
-                                <a href="{{ url_for('admin_contacts_view', id=contact.id) }}" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-eye"></i>
+                            <div class="d-flex gap-2">
+                                <a href="{{ url_for('admin_contacts_view', id=contact['_id']) }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-eye"></i> Xem
                                 </a>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ contact.id }}">
-                                    <i class="bi bi-trash"></i>
+                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ contact['_id'] }}">
+                                    <i class="bi bi-trash"></i> Xóa
                                 </button>
                             </div>
                             
                             <!-- Delete Modal -->
-                            <div class="modal fade" id="deleteModal{{ contact.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal fade" id="deleteModal{{ contact['_id'] }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -62,7 +72,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                            <form action="{{ url_for('admin_contacts_delete', id=contact.id) }}" method="post">
+                                            <form action="{{ url_for('admin_contacts_delete', id=contact['_id']) }}" method="post">
                                                 <button type="submit" class="btn btn-danger">Xóa</button>
                                             </form>
                                         </div>

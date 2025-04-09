@@ -694,11 +694,19 @@ def admin_news_create():
 
 @app.route("/admin/news/edit/<string:id>", methods=["GET", "POST"])
 @login_required
-def admin_news_edit(id):
+def admin_news_edit(id=None):  # Allow id to be optional
     if not current_user.is_admin:
         abort(403)
 
+    if not id:  # Handle missing id
+        flash("ID tin tức không hợp lệ.", "danger")
+        return redirect(url_for("admin_news"))
+
     news = db.news.find_one({"_id": ObjectId(id)})
+
+    if not news:  # Handle invalid id
+        flash("Tin tức không tồn tại.", "danger")
+        return redirect(url_for("admin_news"))
 
     if request.method == "POST":
         update_data = {
@@ -748,11 +756,19 @@ def admin_contacts():
 
 @app.route("/admin/contacts/view/<string:id>")
 @login_required
-def admin_contacts_view(id):
+def admin_contacts_view(id=None):  # Allow id to be optional
     if not current_user.is_admin:
         abort(403)
 
+    if not id:  # Handle missing id
+        flash("ID liên hệ không hợp lệ.", "danger")
+        return redirect(url_for("admin_contacts"))
+
     contact = db.contacts.find_one({"_id": ObjectId(id)})
+
+    if not contact:  # Handle invalid id
+        flash("Liên hệ không tồn tại.", "danger")
+        return redirect(url_for("admin_contacts"))
 
     # Mark as read if it wasn't already
     if not contact.get("is_read"):
@@ -808,20 +824,31 @@ def admin_settings_update():
     for key, value in data.items():
         if key.startswith("setting_"):
             parts = key.split("_")
-            if len(parts) >= 4:
+            if len(parts) >= 3:  # Ensure the key has the correct structure
                 setting_id = parts[1]
                 language = parts[2]
-                setting = db.settings.find_one({"_id": ObjectId(setting_id)})
 
-                if setting:
-                    if language == "vi":
-                        db.settings.update_one(
-                            {"_id": ObjectId(setting_id)}, {"$set": {"value_vi": value}}
-                        )
-                    elif language == "ja":
-                        db.settings.update_one(
-                            {"_id": ObjectId(setting_id)}, {"$set": {"value_ja": value}}
-                        )
+                # Validate ObjectId
+                if not ObjectId.is_valid(setting_id):
+                    flash(f"Lỗi: ID '{setting_id}' không hợp lệ.", "danger")
+                    continue
+
+                try:
+                    setting = db.settings.find_one({"_id": ObjectId(setting_id)})
+
+                    if setting:
+                        if language == "vi":
+                            db.settings.update_one(
+                                {"_id": ObjectId(setting_id)},
+                                {"$set": {"value_vi": value}},
+                            )
+                        elif language == "ja":
+                            db.settings.update_one(
+                                {"_id": ObjectId(setting_id)},
+                                {"$set": {"value_ja": value}},
+                            )
+                except Exception as e:
+                    flash(f"Lỗi khi cập nhật cài đặt: {e}", "danger")
 
     flash("Cài đặt đã được cập nhật thành công", "success")
     return redirect(url_for("admin_settings"))

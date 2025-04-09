@@ -37,17 +37,17 @@
                         </td>
                         <td>{{ item.date.strftime('%d/%m/%Y') }}</td>
                         <td>
-                            <div class="btn-group">
-                                <a href="{{ url_for('admin_news_edit', id=item.id) }}" class="btn btn-sm btn-primary">
-                                    <i class="bi bi-pencil"></i>
+                            <div class="d-flex gap-2">
+                                <a href="{{ url_for('admin_news_edit', id=item['_id']) }}" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-pencil"></i> Sửa
                                 </a>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal{{ item.id }}">
-                                    <i class="bi bi-trash"></i>
+                                <button type="button" class="btn btn-outline-danger btn-sm" data-bs-toggle="modal" data-bs-target="#deleteModal{{ item['_id'] }}">
+                                    <i class="bi bi-trash"></i> Xóa
                                 </button>
                             </div>
                             
                             <!-- Delete Modal -->
-                            <div class="modal fade" id="deleteModal{{ item.id }}" tabindex="-1" aria-hidden="true">
+                            <div class="modal fade" id="deleteModal{{ item['_id'] }}" tabindex="-1" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -60,7 +60,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                                            <form action="{{ url_for('admin_news_delete', id=item.id) }}" method="post">
+                                            <form action="{{ url_for('admin_news_delete', id=item['_id']) }}" method="post">
                                                 <button type="submit" class="btn btn-danger">Xóa</button>
                                             </form>
                                         </div>
